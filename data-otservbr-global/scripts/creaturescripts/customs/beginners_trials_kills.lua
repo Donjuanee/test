@@ -42,10 +42,13 @@ function beginnersTrialsKills.onKill(player, target)
 
 	kills = kills + 1
 	player:setStorageValue(Storage.Custom.BeginnersTrials.Kills, kills)
+	player:sendStorageValue(Storage.Custom.BeginnersTrials.Kills, kills)
 
 	if kills >= REQUIRED then
-		player:setStorageValue(Storage.Custom.BeginnersTrials.Stage, 2) -- completed, return to NPC
-		player:setStorageValue(Storage.Custom.BeginnersTrials.RotwormTrouble, 2) -- questlog: return
+		player:setStorageValue(Storage.Custom.BeginnersTrials.Stage, 2)
+		player:sendStorageValue(Storage.Custom.BeginnersTrials.Stage, 2)
+		player:setStorageValue(Storage.Custom.BeginnersTrials.RotwormTrouble, 2)
+		player:sendStorageValue(Storage.Custom.BeginnersTrials.RotwormTrouble, 2)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have completed 'Beginner's Trials: Rotworm Trouble'. Return to Eldric Wayfarer for your reward.")
 	end
 	return true
